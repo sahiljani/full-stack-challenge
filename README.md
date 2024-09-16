@@ -1,53 +1,63 @@
-# Wise Publishing Full Stack Challenge 👨‍💻
-This challenge is meant to measure your capabilities as a full stack developer and the approach you take on problem-solving.
-We are more interested on your approach rather than a finished challenge. We appreciate SOLID and KISS principles.
-We expect that a MVP ( Minimum Viable Product ) of this challenge to take roughly 2h. However, you will have the weekend to complete the task how you see fit.
-Anything extra is appreciated but not required for a successful completion of the challenge.
+# Wise Publishing Frontend Challenge 👨‍💻
 
-## Brief 💼
+This challenge is meant to measure your capabilities as a **senior frontend developer** and assess your approach to solving complex frontend problems. We value clean architecture, attention to performance, and good user experience.
 
-### Project Name: WiseJobs 🦉
+We appreciate adherence to **SOLID**, **KISS**, and **DRY** principles and encourage a focus on performance, **Core Web Vitals (CWV)**, and UI/UX skills.
 
-## Requirements ⚙️
-Must use [Laravel](https://laravel.com/). You're allowed to use vanilla js or any js frameworks or libraries that you wish as long as you
-utilize typescript.
+We expect that an MVP (Minimum Viable Product) of this challenge will take roughly 3-4 hours. However, you will have the weekend to complete the task. 
 
-You are tasked to create a job board application that display jobs posted from the admin of the site. The site is called WiseJobs.
+## Project Name: **WiseJobs** 🦉
+
+### Requirements ⚙️
+
+This project will use **Laravel** (as a backend framework) and **Alpine.js**, **vanilla JS**, **HTML**, **CSS**, and **Blade templating** for the frontend.
+
+You are tasked with creating a responsive, performant, and user-friendly job board application called WiseJobs.
 
 ### Users 👥
+
 **Users should be able to:**
-* Scroll through the list of the latest published jobs. 
-* Filter jobs based on: position type such as remote or in-person, salary, company and location. 
-* View more details for each individual job.
+- Scroll through the list of the latest published jobs.
+- Filter jobs based on: position type (remote or in-person), salary, company, and location.
+- View more details for each individual job.
+- **Performance Consideration:** Ensure smooth scrolling, fast page loading, and efficient job filtering.
+- **UI/UX Consideration:** The list should be easy to navigate, with clear, user-friendly job cards, and filters should be intuitive and accessible.
 
-### Admin users 🗣️
-**Admins should be able to:**
-* Create companies.
-* View all companies and the number of postings for each company.
-* View a single company.
-* Update a company.
-* Delete a company and all of its postings.
-* Create job postings for a selected company.
-* View a single job posting.
-* Update a job posting.  
-* Delete a job posting.
+### Admin Users 🗣️
 
+**Admin users should be able to:**
+- Create companies.
+- View all companies and the number of postings for each company.
+- View a single company.
+- Update a company.
+- Delete a company and all of its postings.
+- Create job postings for a selected company.
+- View a single job posting.
+- Update a job posting.
+- Delete a job posting.
+  
+### Frontend Expectations 🤘
 
-## Frontend 🤘
-The frontend design decisions and how you go about displaying the data is completely up to you.
+1. **Performance:**
+   - **Optimize for Core Web Vitals (CWV):** Ensure the app scores well on metrics like First Contentful Paint (FCP), Largest Contentful Paint (LCP), and Cumulative Layout Shift (CLS).
+   - **Lazy Loading:** Implement lazy loading of job postings and images to improve initial load time.
+   - **Minification and Compression:** Minimize and compress assets (CSS, JS) for better performance.
 
-## Submission 📬
-Please make sure to fork this repository and write your code in it. We would like to see a commit history of your progress
-so keep in mind to push often with appropriate commits messages. When you are completed with the challenge feel free to share the link
-with us and also don't forget to write a readme for getting started with your project. You should have at least one 
-commit pushed at the 2-hour mark.
+2. **UI/UX:**
+   - **Responsive Design:** Ensure the application is fully responsive across all devices (mobile, tablet, desktop).
+   - **User-friendly Filters:** Implement an intuitive filtering UI with clear feedback when users apply filters.
+   - **Microinteractions:** Add subtle animations or transitions to improve the user experience without impacting performance.
+   - **Accessibility:** Ensure the site is accessible for all users (e.g., keyboard navigation, screen reader support).
 
-Extra points if you host the application
+3. **Frontend Architecture:**
+   - **Reusable Components:** Build reusable components for job cards, filter options, and forms using Blade and Alpine.js.
+   - **Separation of Concerns:** Ensure a clean separation between data fetching and UI rendering for scalability.
+   - **CSS Architecture:** Use a CSS methodology such as BEM or utility-first CSS for maintainable and scalable styles.
 
-# ✨✨ Best of luck to you. ✨✨
+4. **Extras (Optional but appreciated):**
+   - **Dark Mode Toggle**: Provide a dark mode toggle for the job board.
+   - **Hosting**: Deploy the application for extra points.
 
+### Submission 📬
 
-
-
-
-
+Please make sure to fork this repository and commit your code. We would like to see your commit history with clear, frequent commit messages. When you are completed with the challenge, feel free to share the repository link with us, along with a readme for getting started with the project. Ensure at least one commit is pushed at the 2-hour mark.
