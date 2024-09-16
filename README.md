@@ -4,7 +4,7 @@ This challenge is meant to measure your capabilities as a **senior frontend deve
 
 We appreciate adherence to **SOLID**, **KISS**, and **DRY** principles and encourage a focus on performance, **Core Web Vitals (CWV)**, and UI/UX skills.
 
-We expect that an MVP (Minimum Viable Product) of this challenge will take roughly 3-4 hours. However, you will have the weekend to complete the task. 
+We expect that an MVP (Minimum Viable Product) of this challenge will take roughly 3-4 hours. However you will have 2 business days to complete the task.
 
 ## Project Name: **WiseJobs** 🦉
 
