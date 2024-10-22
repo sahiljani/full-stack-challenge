@@ -31,8 +31,8 @@ class JobPostingSeeder extends Seeder
         $locations = ['San Francisco', 'New York', 'Los Angeles', 'Remote', 'Chicago', 'Austin'];
 
         foreach ($companies as $company) {
-            // Generate 500 job postings per company
-            for ($i = 0; $i < 500; $i++) {
+            // Generate 50 job postings per company
+            for ($i = 0; $i < 50; $i++) {
                 $title = $this->getRandomItem($jobTitles);
                 $description = str_replace('{title}', strtolower($title), $this->getRandomItem($jobDescriptions));
                 $location = $this->getRandomItem($locations);
