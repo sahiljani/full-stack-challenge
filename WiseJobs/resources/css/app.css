@@ -1,6 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.pell-actionbar {
+  @apply flex justify-start gap-2 p-2 bg-gray-100 dark:bg-gray-800 border border-gray-300 rounded-lg mb-2;
+}
+
+.pell-button {
+  @apply bg-white border border-gray-300 px-4 py-2 rounded-md cursor-pointer text-base text-gray-800 transition duration-300 ease-in-out;
+}
+
+.pell-button:hover {
+  @apply bg-gray-200 border-gray-400;
+}
+
+.pell-button-selected {
+  @apply bg-indigo-600 text-white border-indigo-600;
+}
+
+.pell-content {
+  @apply h-48 shadow-lg overflow-y-auto border border-gray-300 rounded-lg mb-2 text-black p-3 dark:text-white ;
+}
+
+   
+    .job-listings-container {
+      height: 80vh;
+      overflow-y: auto;
+  }
+  .job-details-container {
+      position: sticky;
+      top: 20px; 
+      height: fit-content;
+  }
+
+  @media (max-width: 1024px) {
+      .job-details-container {
+          display: none;
+      }
+  }
 
 .toggle-switch-checkbox {
     opacity: 0;

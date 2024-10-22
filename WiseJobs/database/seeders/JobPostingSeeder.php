@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Company;
 use App\Models\JobPosting;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class JobPostingSeeder extends Seeder
@@ -15,37 +14,48 @@ class JobPostingSeeder extends Seeder
     public function run(): void{
         $companies = Company::all();
 
+        // Define possible job titles, descriptions, and locations
+        $jobTitles = [
+            'Software Engineer', 'Product Manager', 'Data Scientist', 'UX Designer', 'Marketing Manager', 
+            'DevOps Engineer', 'Sales Representative', 'Content Strategist', 'QA Tester', 'Technical Support'
+        ];
+
+        $jobDescriptions = [
+            'We are looking for a skilled {title} to join our team.',
+            'Seeking a talented {title} to lead our efforts.',
+            'Join us as a {title} and make a difference in our company.',
+            'Looking for an experienced {title} to help us scale.',
+            'We need a {title} to take our product to the next level.'
+        ];
+
+        $locations = ['San Francisco', 'New York', 'Los Angeles', 'Remote', 'Chicago', 'Austin'];
+
         foreach ($companies as $company) {
-            // Generate multiple job postings per company
-            JobPosting::create([
-                'company_id' => $company->id,
-                'title' => 'Software Engineer',
-                'description' => 'We are looking for a skilled software engineer to join our team.',
-                'location' => 'San Francisco',
-                'position_type' => $this->getRandomPositionType(),
-                'salary' => rand(80000, 150000),
-            ]);
+            // Generate 500 job postings per company
+            for ($i = 0; $i < 500; $i++) {
+                $title = $this->getRandomItem($jobTitles);
+                $description = str_replace('{title}', strtolower($title), $this->getRandomItem($jobDescriptions));
+                $location = $this->getRandomItem($locations);
 
-            JobPosting::create([
-                'company_id' => $company->id,
-                'title' => 'Product Manager',
-                'description' => 'Seeking a talented product manager to lead our product development efforts.',
-                'location' => $company->location,
-                'position_type' => $this->getRandomPositionType(),
-                'salary' => rand(100000, 200000),
-            ]);
-
-            JobPosting::create([
-                'company_id' => $company->id,
-                'title' => 'Data Scientist',
-                'description' => 'Looking for a data scientist to analyze and interpret complex data.',
-                'location' => $company->location,
-                'position_type' => $this->getRandomPositionType(),
-                'salary' => rand(90000, 180000),
-            ]);
+                JobPosting::create([
+                    'company_id' => $company->id,
+                    'title' => $title,
+                    'description' => $description,
+                    'location' => $location,
+                    'position_type' => $this->getRandomPositionType(),
+                    'salary' => rand(50000, 200000),
+                ]);
+            }
         }
     }
-    
+
+    /**
+     * Get a random item from an array.
+     */
+    private function getRandomItem(array $items): string{
+        return $items[array_rand($items)];
+    }
+
     /**
      * Get a random position type.
      */

@@ -32,5 +32,8 @@
                 {{ $slot }}
             </main>
         </div>
+
+
+        @vite([ 'resources/js/backend.js'])
     </body>
 </html>

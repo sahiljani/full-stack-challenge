@@ -8,6 +8,9 @@ class JobListingController extends Controller
 {
     public function index(Request $request)
     {
+        $minSalary = JobPosting::min('salary');
+        $maxSalary = JobPosting::max('salary');
+
         $query = JobPosting::query();
 
         $query = $this->applySearchFilter($query, $request);
@@ -17,9 +20,10 @@ class JobListingController extends Controller
         $query = $this->applyCompanyFilter($query, $request);
 
         // Retrieve the filtered job postings with pagination
-        $jobPostings = $query->with('company')->paginate(10);
+        $jobPostings = $query->with('company')->paginate(10)->appends($request->all());
 
-        return view('jobs.index', compact('jobPostings'));
+
+        return view('jobs.index', compact('jobPostings', 'minSalary', 'maxSalary'));
     }
 
     public function show($id)
@@ -52,8 +56,7 @@ class JobListingController extends Controller
         return $query;
     }
 
-    private function applySalaryFilter($query, Request $request)
-    {
+    private function applySalaryFilter($query, Request $request){
         if ($request->filled('salary_min')) {
             $query->where('salary', '>=', $request->salary_min);
         }
@@ -86,6 +89,7 @@ class JobListingController extends Controller
     {
         return JobPosting::where('company_id', $companyId)
                          ->where('id', '!=', $jobId)
+                         ->limit(5)
                          ->get();
     }
 
@@ -93,7 +97,7 @@ class JobListingController extends Controller
     {
         return JobPosting::where('title', 'LIKE', '%' . $title . '%')
                          ->where('id', '!=', $jobId)
-                         ->limit(5)  // Limit to 5 similar jobs
+                         ->limit(5) 
                          ->get();
     }
 }

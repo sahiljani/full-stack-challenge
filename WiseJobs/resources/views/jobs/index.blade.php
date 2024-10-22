@@ -1,16 +1,19 @@
 <x-front-layout>
-    <div class="bg-green-700 dark:bg-gray-900 py-10">
-        <div class="container mx-auto mb-12">
+    <div class="bg-green-700 dark:bg-gray-800 py-10">
+    <div class="flex flex-col p-8 pb-4 container mx-auto mb-12">
+
             <div class="text-black dark:text-gray-200 mb-8">
                 <h2 class="text-4xl text-white font-bold">Discover Best Jobs for you</h2>
             </div>
-            <x-search-form />
+            
+            <x-search-form :minSalary="$minSalary" :maxSalary="$maxSalary" :salaryMin="request('salary_min', $minSalary)" :salaryMax="request('salary_max', $maxSalary)" />
+
         </div>
     </div>
 
 
     <div class="container mx-auto py-10">
-        <div class="flex gap-8">
+        <div class="flex gap-8 p-5 md:p-0">
             <x-filter-form />
             <div class="w-full md:w-2/3">
                 @forelse ($jobPostings as $job)

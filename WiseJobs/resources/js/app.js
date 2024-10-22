@@ -35,21 +35,45 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+function previewImage(event, previewId) {
+    const input = event.target;
+    const preview = document.getElementById(previewId);
+    const file = input.files[0];
 
-   // Submit the form on filter change
-   const filterForm = document.getElementById('filterForm');
-   filterForm.querySelectorAll('input, select').forEach(function(element) {
-       element.addEventListener('change', function() {
-           filterForm.submit();
-       });
-   });
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    } else {
+        preview.src = '';
+        preview.style.display = 'none';
+    }
+}
 
-   // Submit the search form on search field change
-   const searchForm = document.getElementById('searchForm');
-   searchForm.querySelectorAll('input, select').forEach(function(element) {
-       element.addEventListener('change', function() {
-           searchForm.submit();
-       });
-   });
+// Submit the form on filter change
+const filterForm = document.getElementById('filterForm');
+if (filterForm) {
+    filterForm.querySelectorAll('input, select').forEach(function(element) {
+        element.addEventListener('change', function() {
+            filterForm.submit();
+        });
+    });
+}
 
+// Submit the search form on search field change
+const searchForm = document.getElementById('searchForm');
+if (searchForm) {
+    searchForm.querySelectorAll('input, select').forEach(function(element) {
+        element.addEventListener('change', function() {
+            searchForm.submit();
+        });
+    });
+}
+
+
+
+ 
 
