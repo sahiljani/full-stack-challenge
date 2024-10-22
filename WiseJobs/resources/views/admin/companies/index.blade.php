@@ -17,10 +17,19 @@
                     {{ session('error') }}
                 </div>
             @endif
+            @if($errors->any())
+    <div class="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
             <div class="bg-white dark:bg-gray-900 shadow-lg sm:rounded-lg p-8">
                 <div class="flex items-center justify-between mb-6">
                     <h1 class="text-3xl font-semibold text-gray-900 dark:text-gray-100">{{ __('Manage Companies') }}</h1>
-                    <button @click="$dispatch('open-modal', 'create')" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none">
+                    <button @click="$dispatch('open-modal', 'create')" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg transition-transform transform hover:scale-105 shadow-md hover:shadow-lg duration-200 ease-in-out mb-5 w-fit block">
                         {{ __('Create New Company') }}
                     </button>
                 </div>
@@ -106,7 +115,7 @@
                     <!-- View Modal -->
                     <x-modal name="view-{{ $company->id }}">
                         <div class="p-6">
-                            <h2 class="text-xl font-semibold mb-4 text-gray-100 dark:text-gray-100">{{ $company->name }}</h2>
+                            <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-200">{{ $company->name }}</h2>
                             <p class="text-gray-700 dark:text-gray-300">{{ __('Location: ') . $company->location }}</p>
                             <p class="text-gray-700 dark:text-gray-300">{{ __('Number of Job Postings: ') . $company->job_postings_count }}</p>
                             @if($company->logo)
@@ -121,7 +130,7 @@
                     <!-- Edit Modal -->
                     <x-modal name="edit-{{ $company->id }}">
                         <div class="p-6">
-                            <h2 class="text-xl font-semibold mb-4">{{ __('Edit Company') }}</h2>
+                            <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-200">{{ __('Edit Company') }}</h2>
                             <form method="POST" action="{{ route('admin.companies.update', $company->id) }}" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')

@@ -20,8 +20,8 @@ class CompanyController extends Controller
     // Validate the input
     $validated = $request->validate([
         'name' => 'required|string|max:255',
-        'location' => 'nullable|string|max:255',
-        'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'location' => 'required|string|max:255',
+        'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ]);
 
     // Create a new company
@@ -45,8 +45,8 @@ public function update(Request $request, Company $company)
     // Validate the request data
     $validated = $request->validate([
         'name' => 'required|string|max:255',
-        'location' => 'nullable|string|max:255',
-        'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'location' => 'required|string|max:255',
+        'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ]);
 
     // Update the existing company's name and location

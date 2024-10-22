@@ -15,17 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if the user has a saved theme preference in localStorage
     if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark');
-        toggleCheckbox.checked = true;  // Set checkbox to checked if theme is dark
+        toggleCheckbox.checked = true;  
     } else {
         document.body.classList.remove('dark');
-        toggleCheckbox.checked = false;  // Uncheck if the theme is not dark
+        toggleCheckbox.checked = false; 
     }
 
     // Listen for changes on the toggle checkbox
     toggleCheckbox.addEventListener('change', () => {
-        document.body.classList.toggle('dark');  // Toggle the dark class
+        document.body.classList.toggle('dark'); 
 
-        // Update localStorage with the current theme preference
         if (document.body.classList.contains('dark')) {
             localStorage.setItem('theme', 'dark');
         } else {
@@ -53,27 +52,51 @@ function previewImage(event, previewId) {
     }
 }
 
-// Submit the form on filter change
-const filterForm = document.getElementById('filterForm');
-if (filterForm) {
-    filterForm.querySelectorAll('input, select').forEach(function(element) {
-        element.addEventListener('change', function() {
-            filterForm.submit();
-        });
-    });
-}
-
-// Submit the search form on search field change
-const searchForm = document.getElementById('searchForm');
-if (searchForm) {
-    searchForm.querySelectorAll('input, select').forEach(function(element) {
-        element.addEventListener('change', function() {
-            searchForm.submit();
-        });
-    });
-}
 
 
-
+   // Toggle filter drawer on mobile
+   const filterToggleBtn = document.getElementById('filterToggleBtn');
+   const filterDrawer = document.getElementById('filterDrawer');
+   const closeFilterBtn = document.getElementById('closeFilterBtn');
+   
+   if (filterToggleBtn && filterDrawer && closeFilterBtn) {
+       filterToggleBtn.addEventListener('click', () => {
+           filterDrawer.classList.toggle('hidden');
+           filterDrawer.firstElementChild.classList.toggle('-translate-x-full');
+       });
+   
+       closeFilterBtn.addEventListener('click', () => {
+           filterDrawer.classList.add('hidden');
+           filterDrawer.firstElementChild.classList.add('-translate-x-full');
+       });
+   
+       filterDrawer.addEventListener('click', (e) => {
+           if (e.target === filterDrawer) {
+               filterDrawer.classList.add('hidden');
+               filterDrawer.firstElementChild.classList.add('-translate-x-full');
+           }
+       });
+   }
+   
+   // Submit the form on filter change (Mobile)
+   const filterFormMobile = document.getElementById('filterFormMobile');
+   if (filterFormMobile) {
+       filterFormMobile.querySelectorAll('input, select').forEach(function(element) {
+           element.addEventListener('change', function() {
+               filterFormMobile.submit();
+           });
+       });
+   }
+   
+   // Submit the form on filter change (Desktop)
+   const filterFormDesktop = document.getElementById('filterFormDesktop');
+   if (filterFormDesktop) {
+       filterFormDesktop.querySelectorAll('input, select').forEach(function(element) {
+           element.addEventListener('change', function() {
+               filterFormDesktop.submit();
+           });
+       });
+   }
+   
  
 

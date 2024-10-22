@@ -21,22 +21,6 @@
   @apply h-48 shadow-lg overflow-y-auto border border-gray-300 rounded-lg mb-2 text-black p-3 dark:text-white ;
 }
 
-   
-    .job-listings-container {
-      height: 80vh;
-      overflow-y: auto;
-  }
-  .job-details-container {
-      position: sticky;
-      top: 20px; 
-      height: fit-content;
-  }
-
-  @media (max-width: 1024px) {
-      .job-details-container {
-          display: none;
-      }
-  }
 
 .toggle-switch-checkbox {
     opacity: 0;

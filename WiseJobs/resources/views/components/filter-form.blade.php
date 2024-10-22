@@ -9,8 +9,8 @@
         <!-- Close Drawer Button -->
         <button id="closeFilterBtn" class="text-gray-600 dark:text-gray-300 text-2xl">&times;</button>
         
-        <!-- Filter Form (Inside Drawer) -->
-        <form id="filterForm" action="{{ route('jobs.index') }}"  method="GET" class="mt-4">
+        <!-- Filter Form (Mobile) -->
+        <form id="filterFormMobile" action="{{ route('jobs.index') }}" method="GET" class="mt-4">
             <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
                 <!-- Salary Range Filter -->
                 <div class="mb-8">
@@ -49,7 +49,7 @@
 
 <!-- Filter Form (Visible on Larger Screens) -->
 <div class="hidden lg:block w-1/3 pr-10">
-    <form id="filterForm" action="{{ route('jobs.index') }}" method="GET" class="w-full">
+    <form id="filterFormDesktop" action="{{ route('jobs.index') }}" method="GET" class="w-full">
         <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
             <!-- Salary Range Filter -->
             <div class="mb-8">
@@ -84,26 +84,3 @@
     </form>
 </div>
 
-<!-- JavaScript for toggling the drawer -->
-<script>
-    const filterToggleBtn = document.getElementById('filterToggleBtn');
-    const filterDrawer = document.getElementById('filterDrawer');
-    const closeFilterBtn = document.getElementById('closeFilterBtn');
-
-    filterToggleBtn.addEventListener('click', () => {
-        filterDrawer.classList.toggle('hidden');
-        filterDrawer.firstElementChild.classList.toggle('-translate-x-full');
-    });
-
-    closeFilterBtn.addEventListener('click', () => {
-        filterDrawer.classList.add('hidden');
-        filterDrawer.firstElementChild.classList.add('-translate-x-full');
-    });
-
-    filterDrawer.addEventListener('click', (e) => {
-        if (e.target === filterDrawer) {
-            filterDrawer.classList.add('hidden');
-            filterDrawer.firstElementChild.classList.add('-translate-x-full');
-        }
-    });
-</script>

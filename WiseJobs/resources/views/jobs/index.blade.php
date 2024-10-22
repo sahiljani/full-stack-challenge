@@ -6,7 +6,7 @@
                 <h2 class="text-4xl text-white font-bold">Discover Best Jobs for you</h2>
             </div>
             
-            <x-search-form :minSalary="$minSalary" :maxSalary="$maxSalary" :salaryMin="request('salary_min', $minSalary)" :salaryMax="request('salary_max', $maxSalary)" />
+            <x-search-form  />
 
         </div>
     </div>

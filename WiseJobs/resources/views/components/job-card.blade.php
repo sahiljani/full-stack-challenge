@@ -1,7 +1,7 @@
-<div class="bg-white dark:bg-gray-800 p-10 rounded-lg shadow-lg mb-10">
+<div class="bg-white dark:bg-gray-800 p-10 rounded-lg shadow-lg mb-10 cursor-pointer transition-transform transform hover:scale-105 hover:shadow-xl bg-white dark:bg-gray-700 duration-200 ease-in-out" >
 <div class="flex flex-col items-start gap-[20px] sm:flex-row sm:justify-between sm:items-center">
 
-        <div class="flex flex-col gap-5 sm:flex-row sm:items-start sm:space-x-8">
+        <div class="flex flex-col gap-5 sm:flex-row sm:items-start sm:space-x-8 ">
             <img src="{{ asset('storage/' . $job->company->logo) }}" class="w-20 h-20 rounded-full" loading="lazy" alt="Company Logo">
             <div>
                 <h3 class="font-bold text-2xl text-gray-900 dark:text-gray-200 mb-3">{{ $job->title }}</h3>

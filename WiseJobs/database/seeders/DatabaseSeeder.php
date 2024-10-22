@@ -16,13 +16,14 @@ class DatabaseSeeder extends Seeder
     
         $this->call([
             CompanySeeder::class,
-            // JobPostingSeeder::class,
+            JobPostingSeeder::class,
         ]);
-        
 
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()->create([
+            'email' => 'test@test.com',
+            'password' => bcrypt('123456'),
+
+        ]) ;
+
     }
 }

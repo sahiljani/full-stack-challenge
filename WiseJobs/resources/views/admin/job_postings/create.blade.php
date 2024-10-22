@@ -73,7 +73,7 @@
 
     <script src="https://unpkg.com/pell"></script>
     <script>
-        // Initialize the Pell editor
+      
         const editor = pell.init({
             element: document.getElementById('editor'),
             onChange: (html) => {

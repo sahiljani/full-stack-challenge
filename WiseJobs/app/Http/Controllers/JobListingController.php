@@ -22,7 +22,6 @@ class JobListingController extends Controller
         // Retrieve the filtered job postings with pagination
         $jobPostings = $query->with('company')->paginate(10)->appends($request->all());
 
-
         return view('jobs.index', compact('jobPostings', 'minSalary', 'maxSalary'));
     }
 
