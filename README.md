@@ -1,63 +1,111 @@
-# Wise Publishing Frontend Challenge 👨‍💻
 
-This challenge is meant to measure your capabilities as a **senior frontend developer** and assess your approach to solving complex frontend problems. We value clean architecture, attention to performance, and good user experience.
+# WiseJobs 🦉 - Job Board Application
 
-We appreciate adherence to **SOLID**, **KISS**, and **DRY** principles and encourage a focus on performance, **Core Web Vitals (CWV)**, and UI/UX skills.
+## Project Overview
 
-We expect that an MVP (Minimum Viable Product) of this challenge will take roughly 3-4 hours. However you will have 2 business days to complete the task.
+WiseJobs is a responsive and performant job board application developed as part of the Wise Publishing Frontend Challenge. The application allows users to browse job listings, filter them based on various criteria, and view details about each job. Admin users have the ability to manage companies and job postings.
 
-## Project Name: **WiseJobs** 🦉
+## Features
 
-### Requirements ⚙️
+### User Features:
+- **Browse Jobs**: View a list of the latest published jobs with smooth scrolling.
+- **Filter Jobs**: Filter jobs based on:
+  - Position type: Remote or in-person
+  - Salary range
+  - Company
+  - Location
+- **Job Details**: Click to view detailed information about individual job postings.
 
-This project will use **Laravel** (as a backend framework) and **Alpine.js**, **vanilla JS**, **HTML**, **CSS**, and **Blade templating** for the frontend.
+### Admin Features:
+- **Company Management**:
+  - Create, update, and delete companies.
+  - View all companies with the number of job postings per company.
+  - View individual company details.
+- **Job Management**:
+  - Create, update, and delete job postings for selected companies.
+  - View individual job postings.
 
-You are tasked with creating a responsive, performant, and user-friendly job board application called WiseJobs.
+## Core Technologies
+- **Backend**: Laravel
+- **Frontend**: Alpine.js, vanilla JavaScript, Blade templating, HTML, Tailwind CSS
 
-### Users 👥
+## Performance Optimization
 
-**Users should be able to:**
-- Scroll through the list of the latest published jobs.
-- Filter jobs based on: position type (remote or in-person), salary, company, and location.
-- View more details for each individual job.
-- **Performance Consideration:** Ensure smooth scrolling, fast page loading, and efficient job filtering.
-- **UI/UX Consideration:** The list should be easy to navigate, with clear, user-friendly job cards, and filters should be intuitive and accessible.
+- **Core Web Vitals**: The app is optimized for FCP, LCP, and CLS to ensure a smooth, fast experience.
+- **Lazy Loading**: Job postings and images are lazy-loaded to reduce initial load times.
+- **Minification and Compression**: CSS and JS assets are minified and compressed for better performance.
 
-### Admin Users 🗣️
+## UI/UX Enhancements
 
-**Admin users should be able to:**
-- Create companies.
-- View all companies and the number of postings for each company.
-- View a single company.
-- Update a company.
-- Delete a company and all of its postings.
-- Create job postings for a selected company.
-- View a single job posting.
-- Update a job posting.
-- Delete a job posting.
-  
-### Frontend Expectations 🤘
+- **Responsive Design**: Fully responsive across mobile, tablet, and desktop.
+- **User-friendly Filters**: The filter options are intuitive and provide clear feedback when applied.
+- **Microinteractions**: Subtle animations and transitions enhance the user experience.
 
-1. **Performance:**
-   - **Optimize for Core Web Vitals (CWV):** Ensure the app scores well on metrics like First Contentful Paint (FCP), Largest Contentful Paint (LCP), and Cumulative Layout Shift (CLS).
-   - **Lazy Loading:** Implement lazy loading of job postings and images to improve initial load time.
-   - **Minification and Compression:** Minimize and compress assets (CSS, JS) for better performance.
 
-2. **UI/UX:**
-   - **Responsive Design:** Ensure the application is fully responsive across all devices (mobile, tablet, desktop).
-   - **User-friendly Filters:** Implement an intuitive filtering UI with clear feedback when users apply filters.
-   - **Microinteractions:** Add subtle animations or transitions to improve the user experience without impacting performance.
-   - **Accessibility:** Ensure the site is accessible for all users (e.g., keyboard navigation, screen reader support).
+## Architecture
 
-3. **Frontend Architecture:**
-   - **Reusable Components:** Build reusable components for job cards, filter options, and forms using Blade and Alpine.js.
-   - **Separation of Concerns:** Ensure a clean separation between data fetching and UI rendering for scalability.
-   - **CSS Architecture:** Use a CSS methodology such as BEM or utility-first CSS for maintainable and scalable styles.
+- **Reusable Components**: Job cards, filter options, and forms are reusable across the application using Blade templates and Alpine.js.
+- **Separation of Concerns**: Data fetching is cleanly separated from UI rendering to ensure scalability.
+- **CSS Architecture**: The app uses **Tailwind CSS** utility-first classes for a highly maintainable and scalable design.
 
-4. **Extras (Optional but appreciated):**
-   - **Dark Mode Toggle**: Provide a dark mode toggle for the job board.
-   - **Hosting**: Deploy the application for extra points.
+## Tailwind CSS Integration
 
-### Submission 📬
+I used **Tailwind CSS** for styling to ensure a fast development workflow and clean, scalable styles. Tailwind’s utility-first approach allowed for rapid styling with responsive and accessible classes. The key benefits include:
+- **Responsive Utilities**: Tailwind’s responsive modifiers helped me create mobile-first designs quickly.
+- **Dark Mode**: Tailwind’s built-in dark mode support was used to implement a dark mode toggle.
+- **Custom Configuration**: The Tailwind config file was customized to suit the project’s design needs (if any customizations were made).
 
-Please make sure to fork this repository and commit your code. We would like to see your commit history with clear, frequent commit messages. When you are completed with the challenge, feel free to share the repository link with us, along with a readme for getting started with the project. Ensure at least one commit is pushed at the 2-hour mark.
+## Setup Instructions
+
+### Prerequisites
+
+Make sure you have the following installed on your system:
+- PHP >= 8.2
+- Composer
+- Node.js and npm
+
+### Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/sahiljani/full-stack-challenge/
+   cd full-stack-challenge/wisejobs 
+
+2. **Install Backend Dependencies:**:
+   ```bash
+    composer install
+3. **Install Frontend Dependencies:**:
+   ```bash
+    npm install
+4. Set Up Environment: Create a .env file by copying .env.example and configuring your database:
+   ```bash
+    cp .env.example .env
+    php artisan key:generate
+5. Migrate the Database and Seed Data:
+   ```bash
+    php artisan migrate --seed
+6. Run Development Server:
+   ```bash
+    php artisan serve
+7. Compile Frontend Assets:
+   ```bash
+    npm run dev
+### Test Login Credentials
+
+You can use the following credentials to log in as a test user:
+
+- **Email**: `test@test.com`
+- **Password**: `123456`
+
+Navigate to `/login` to access the login page.
+
+### Screenshorts
+
+![enter image description here](https://i.imgur.com/Q1FxsV5.png)
+
+
+![enter image description here](https://i.imgur.com/pXa0z0O.png)
+
+![enter image description here](https://i.imgur.com/E8yDKoQ.png)
+
+![enter image description here](https://i.imgur.com/0NZkMsV.png)
